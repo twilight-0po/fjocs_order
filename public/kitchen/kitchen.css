@@ -1,0 +1,54 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  #order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .order {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .order-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .menu-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .received { background-color: #007bff; }
+  .cooking  { background-color: #ffc107; color: black; }
+  .done     { background-color: #28a745; }
+  .accept-button {
+    background-color: #555;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  
