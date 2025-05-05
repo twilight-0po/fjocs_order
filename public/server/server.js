@@ -33,18 +33,28 @@ div.innerHTML = `
   }
   
   async function serveItem(orderId, itemIndex) {
-    const res = await fetch('/orders');
-    const data = await res.json();
-    data[orderId].items[itemIndex].status = 'done';
+    const button = event.target;
+    button.disabled = true; // ✅ 중복 클릭 방지
   
-    await fetch(`/orders/${orderId}/items`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: data[orderId].items })
-    });
+    try {
+      const res = await fetch('/orders');
+      const data = await res.json();
   
-    fetchOrders();
+      data[orderId].items[itemIndex].status = 'done';
+  
+      await fetch(`/orders/${orderId}/items`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: data[orderId].items })
+      });
+  
+      fetchOrders();
+    } catch (error) {
+      console.error(error);
+      button.disabled = false; // 실패 시 다시 클릭 가능
+    }
   }
+  
   
   
   fetchOrders();
